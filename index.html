@@ -3,158 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Octopus Studio Apps</title>
+    <title>Octopus Studio Apps | Ready to Play</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Variables y Reseteo */
+        /* --- VARIABLES DE COLOR (Basadas en el Splash Screen) --- */
         :root {
-            --primary: #2C3E50; /* Azul oscuro elegante */
-            --accent: #E74C3C; /* Rojo/Naranja llamativo para botones */
-            --bg-color: #F8F9FA;
-            --text-main: #333333;
+            --bg-dark: #0d0d12;
+            --bg-card: #1a1a24;
+            --text-main: #e0e0e0; /* Plateado/Acero */
+            --text-muted: #9ca3af;
+            --rose-gold: #c5837d; /* Tono extraído del logo */
+            --rose-gold-light: #e8a9a4;
+            --coral-alert: #ff6b6b;
+            --amber-glow: #f59e0b;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-        
-        /* Cabecera / Hero */
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVEGACIÓN --- */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(197, 131, 125, 0.2);
         }
-        .logo-estudio {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
-        /* Sección de Aplicaciones */
-        .seccion-apps {
-            max-width: 900px;
-            margin: -2rem auto 3rem auto;
-            padding: 0 1rem;
-        }
-        .app-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .nav-content {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease;
         }
-        .app-card:hover { transform: translateY(-5px); }
-        .app-icono {
-            width: 120px;
-            height: 120px;
-            border-radius: 25px; /* Bordes redondeados típicos de app */
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .app-card h2 { color: var(--primary); font-size: 2rem; margin-bottom: 1rem; }
-        .app-card p { margin-bottom: 2rem; font-size: 1.1rem; color: #555; }
-        
-        /* Botones */
-        .btn-playstore {
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: background 0.3s;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        .btn-playstore:hover { background-color: #c0392b; }
 
-        /* Redes Sociales */
-        .redes-sociales {
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--rose-gold), var(--rose-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- SECCIÓN HERO (Principal) --- */
+        .hero {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            border-top: 1px solid #eee;
-            padding-top: 1.5rem;
-            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            min-height: 80vh;
+            gap: 40px;
         }
-        .redes-sociales a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .redes-sociales a:hover { color: var(--accent); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #777;
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Efecto de resplandor detrás del móvil */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            background: var(--rose-gold);
+            filter: blur(100px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-image img {
+            max-width: 320px;
+            border-radius: 40px; /* Redondeo simulando el borde de un móvil */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 4px solid #2a2a35; /* Falso marco de móvil */
+        }
+
+        /* --- BOTONES DE DESCARGA --- */
+        .store-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
             font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .enlaces-legales {
-            margin-top: 1rem;
+
+        .btn-playstore {
+            background: linear-gradient(135deg, var(--rose-gold), #a05a65);
+            color: #fff;
+            border: none;
         }
-        .enlaces-legales a {
-            color: #777;
-            text-decoration: none;
+
+        .btn-playstore:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 131, 125, 0.3);
+        }
+
+        .btn-appstore {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 2px solid #333;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .btn i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .coming-soon {
+            font-size: 0.7rem;
+            display: block;
+            font-weight: 300;
+        }
+
+        /* --- SECCIÓN FUNCIONALIDADES (Features) --- */
+        .features {
+            padding: 80px 0;
+            background-color: #101016;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(197, 131, 125, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER Y REDES SOCIALES --- */
+        footer {
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--bg-card);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--rose-gold);
+            border: 1px solid rgba(197, 131, 125, 0.2);
+        }
+
+        .social-links a:hover {
+            background-color: var(--rose-gold);
+            color: #fff;
+        }
+
+        .legal-links {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+        }
+
+        .legal-links a {
             margin: 0 10px;
         }
-        .enlaces-legales a:hover { text-decoration: underline; color: var(--primary); }
 
-        /* Responsivo para móviles */
-        @media (min-width: 768px) {
-            .app-card {
-                flex-direction: row;
-                text-align: left;
-                align-items: center;
-                gap: 2rem;
+        .legal-links a:hover {
+            color: var(--rose-gold);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
             }
-            .app-icono { margin-bottom: 0; }
-            .app-info { flex: 1; }
-            .redes-sociales { justify-content: flex-start; }
+            .store-buttons {
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="Octopus Studio Apps Logo" class="logo-estudio">
-        <h1>Octopus Studio Apps</h1>
-        <p>Desarrollo de aplicaciones móviles independientes. Creamos experiencias únicas, divertidas y diseñadas para conectar.</p>
+        <div class="container nav-content">
+            <div class="logo-text">Octopus Studio Apps</div>
+            </div>
     </header>
 
-    <main class="seccion-apps">
-        <article class="app-card">
-            <img src="icono-readytoplay.png" alt="Icono Ready to Play" class="app-icono">
+    <section class="hero container">
+        <div class="hero-text">
+            <h1>[Pega aquí el Título Principal de NotebookLM]</h1>
+            <p>[Pega aquí el Subtítulo o descripción corta (ej. El juego de mesa llevado al siguiente nivel) de NotebookLM]</p>
             
-            <div class="app-info">
-                <h2>Ready to Play</h2>
-                <p>El juego interactivo definitivo para parejas. Gestiona tu inventario, supera retos picantes y rompe la rutina con mecánicas divertidas y totalmente personalizables.</p>
-                
-                <a href="#" class="btn-playstore">Descargar en Google Play</a>
-                
-                <div class="redes-sociales">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">Facebook</a>
+            <div class="store-buttons">
+                <a href="[Pega aquí tu link de Google Play]" class="btn btn-playstore" target="_blank">
+                    <i class="fab fa-google-play"></i>
+                    <div>
+                        <span style="font-size: 0.7rem; display: block; font-weight: normal;">Disponible en</span>
+                        Google Play
+                    </div>
+                </a>
+
+                <div class="btn btn-appstore">
+                    <i class="fab fa-apple"></i>
+                    <div>
+                        <span class="coming-soon">Próximamente en</span>
+                        App Store
+                    </div>
                 </div>
             </div>
-        </article>
-    </main>
+        </div>
+        
+        <div class="hero-image">
+            <img src="inicio.png" alt="Pantalla de inicio de Ready to Play">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">[Pega aquí el título de Características, ej. "Sube la temperatura a tu ritmo"]</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>[Título de Feature 1 de NotebookLM]</h3>
+                    <p>[Descripción de Feature 1 de NotebookLM. Ej: Configura tu identidad y selecciona los juguetes que tienes a mano.]</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-fire-alt"></i></div>
+                    <h3>[Título de Feature 2 de NotebookLM]</h3>
+                    <p>[Descripción de Feature 2 de NotebookLM. Ej: Tres niveles de intensidad que se adaptan a vosotros.]</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>[Título de Feature 3 de NotebookLM]</h3>
+                    <p>[Descripción de Feature 3 de NotebookLM. Ej: El compromiso de satisfacción total. Reglas claras, placer absoluto.]</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Octopus Studio Apps. Todos los derechos reservados.</p>
-        <div class="enlaces-legales">
-            <a href="terminos.html">Términos y Condiciones</a>
-            <a href="privacidad.html">Política de Privacidad</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo-text" style="font-size: 1rem;">Octopus Studio Apps</div>
+                
+                <div class="social-links">
+                    <a href="[Link a TikTok]" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="[Link a Instagram]" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="[Link a Facebook]" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="legal-links">
+                <p>&copy; 2026 Octopus Studio Apps. Todos los derechos reservados.</p>
+                <div style="margin-top: 10px;">
+                    <a href="privacidad.html">[Pega el texto "Política de Privacidad"]</a> | 
+                    <a href="terminos.html">[Pega el texto "Términos y Condiciones"]</a>
+                </div>
+            </div>
         </div>
     </footer>
 
