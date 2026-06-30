@@ -2,16 +2,161 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Octopus Studio Apps</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f9; }
-        .container { text-align: center; }
+        /* Variables y Reseteo */
+        :root {
+            --primary: #2C3E50; /* Azul oscuro elegante */
+            --accent: #E74C3C; /* Rojo/Naranja llamativo para botones */
+            --bg-color: #F8F9FA;
+            --text-main: #333333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        
+        /* Cabecera / Hero */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .logo-estudio {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Sección de Aplicaciones */
+        .seccion-apps {
+            max-width: 900px;
+            margin: -2rem auto 3rem auto;
+            padding: 0 1rem;
+        }
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .app-card:hover { transform: translateY(-5px); }
+        .app-icono {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px; /* Bordes redondeados típicos de app */
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .app-card h2 { color: var(--primary); font-size: 2rem; margin-bottom: 1rem; }
+        .app-card p { margin-bottom: 2rem; font-size: 1.1rem; color: #555; }
+        
+        /* Botones */
+        .btn-playstore {
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .btn-playstore:hover { background-color: #c0392b; }
+
+        /* Redes Sociales */
+        .redes-sociales {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+            width: 100%;
+        }
+        .redes-sociales a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .redes-sociales a:hover { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .enlaces-legales {
+            margin-top: 1rem;
+        }
+        .enlaces-legales a {
+            color: #777;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .enlaces-legales a:hover { text-decoration: underline; color: var(--primary); }
+
+        /* Responsivo para móviles */
+        @media (min-width: 768px) {
+            .app-card {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 2rem;
+            }
+            .app-icono { margin-bottom: 0; }
+            .app-info { flex: 1; }
+            .redes-sociales { justify-content: flex-start; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <header>
+        <img src="logo.png" alt="Octopus Studio Apps Logo" class="logo-estudio">
         <h1>Octopus Studio Apps</h1>
-        <p>Desarrollo de aplicaciones móviles creativas.</p>
-    </div>
+        <p>Desarrollo de aplicaciones móviles independientes. Creamos experiencias únicas, divertidas y diseñadas para conectar.</p>
+    </header>
+
+    <main class="seccion-apps">
+        <article class="app-card">
+            <img src="icono-readytoplay.png" alt="Icono Ready to Play" class="app-icono">
+            
+            <div class="app-info">
+                <h2>Ready to Play</h2>
+                <p>El juego interactivo definitivo para parejas. Gestiona tu inventario, supera retos picantes y rompe la rutina con mecánicas divertidas y totalmente personalizables.</p>
+                
+                <a href="#" class="btn-playstore">Descargar en Google Play</a>
+                
+                <div class="redes-sociales">
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Octopus Studio Apps. Todos los derechos reservados.</p>
+        <div class="enlaces-legales">
+            <a href="terminos.html">Términos y Condiciones</a>
+            <a href="privacidad.html">Política de Privacidad</a>
+        </div>
+    </footer>
+
 </body>
 </html>
